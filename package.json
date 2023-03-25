@@ -1,0 +1,29 @@
+{
+    "name": "pdf-reader",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "vitest",
+        "build": "rm -rf dist && rollup -c"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.21.3",
+        "@babel/preset-env": "^7.20.2",
+        "@rollup/plugin-babel": "^6.0.3",
+        "@rollup/plugin-commonjs": "^24.0.1",
+        "@rollup/plugin-node-resolve": "^15.0.1",
+        "@rollup/plugin-typescript": "^11.0.0",
+        "rollup": "^3.20.1",
+        "rollup-plugin-dts": "^5.3.0",
+        "tslib": "^2.5.0",
+        "typescript": "^5.0.2",
+        "vitest": "^0.29.7"
+    },
+    "dependencies": {
+        "pdfjs-dist": "3.4.120"
+    }
+}
