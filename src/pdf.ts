@@ -37,7 +37,6 @@ export class PdfController {
 
     async fetchPdf() {
         const pdfDocConfig: Record<string, any> = {
-            cMapUrl: "../../node_modules/pdfjs-dist/cmaps/",
             cMapPacked: true,
             rangeChunkSize: 65536,
             pdfBug: false,

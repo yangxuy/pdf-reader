@@ -3,13 +3,12 @@
     "version": "1.0.1",
     "description": "a pdf reader",
     "main": "dist/bundle.js",
-    "type": "module",
     "files": [
         "dist"
     ],
     "scripts": {
         "test": "vitest",
-        "build": "rm -rf dist && rollup -c"
+        "build": "webpack"
     },
     "repository": {
         "type": "git",
@@ -18,17 +17,13 @@
     "author": "yangxuy",
     "license": "ISC",
     "devDependencies": {
-        "pdfjs-dist": "3.4.120",
         "@babel/core": "^7.21.3",
         "@babel/preset-env": "^7.20.2",
-        "@rollup/plugin-babel": "^6.0.3",
-        "@rollup/plugin-commonjs": "^24.0.1",
-        "@rollup/plugin-node-resolve": "^15.0.1",
-        "@rollup/plugin-typescript": "^11.0.0",
-        "rollup": "^3.20.1",
-        "rollup-plugin-dts": "^5.3.0",
-        "tslib": "^2.5.0",
+        "pdfjs-dist": "3.4.120",
+        "ts-loader": "^9.4.2",
         "typescript": "^5.0.2",
-        "vitest": "^0.29.7"
+        "vitest": "^0.29.7",
+        "webpack": "^5.76.3",
+        "webpack-cli": "^5.0.1"
     }
 }
