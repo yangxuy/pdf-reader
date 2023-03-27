@@ -1,8 +1,8 @@
 {
     "name": "@yangxuy/pdf-reader",
-    "version": "1.0.3",
-    "description": "a pdf reader",
-    "main": "dist/bundle.js",
+    "version": "1.0.4",
+    "description": "a pdf reader can use for react or vue",
+    "main": "dist/main.bundle.js",
     "files": [
         "dist"
     ],
@@ -14,6 +14,7 @@
         "type": "git",
         "url": "git@github.com:yangxuy/pdf-reader.git"
     },
+    "homepage": "https://www.jianshu.com/p/008bea4eecf9",
     "author": "yangxuy",
     "license": "ISC",
     "devDependencies": {
