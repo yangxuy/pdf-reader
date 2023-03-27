@@ -1,10 +1,8 @@
-const webpack = require("webpack"); // eslint-disable-line no-unused-vars
 const path = require("path");
 
 module.exports = {
     entry: {
         main: "./src/main.ts",
-        "pdf.worker": "pdfjs-dist/build/pdf.worker.entry",
     },
     mode: "production",
     output: {

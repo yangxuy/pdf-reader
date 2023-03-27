@@ -1,6 +1,6 @@
 {
     "name": "@yangxuy/pdf-reader",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "a pdf reader",
     "main": "dist/bundle.js",
     "files": [
@@ -8,7 +8,7 @@
     ],
     "scripts": {
         "test": "vitest",
-        "build": "webpack"
+        "build": "rm -rf dist && webpack"
     },
     "repository": {
         "type": "git",
