@@ -1,16 +1,24 @@
 {
-    "name": "pdf-reader",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "name": "@yangxuy/pdf-reader",
+    "version": "1.0.1",
+    "description": "a pdf reader",
+    "main": "dist/bundle.js",
     "type": "module",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "test": "vitest",
         "build": "rm -rf dist && rollup -c"
     },
-    "author": "",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:yangxuy/pdf-reader.git"
+    },
+    "author": "yangxuy",
     "license": "ISC",
     "devDependencies": {
+        "pdfjs-dist": "3.4.120",
         "@babel/core": "^7.21.3",
         "@babel/preset-env": "^7.20.2",
         "@rollup/plugin-babel": "^6.0.3",
@@ -22,8 +30,5 @@
         "tslib": "^2.5.0",
         "typescript": "^5.0.2",
         "vitest": "^0.29.7"
-    },
-    "dependencies": {
-        "pdfjs-dist": "3.4.120"
     }
 }
