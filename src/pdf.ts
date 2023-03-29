@@ -30,9 +30,13 @@ export class PdfController {
     }
 
     async fetchData() {
-        const res = await fetch(this.url!);
-        this.pdfBuffer = await res.arrayBuffer();
-        this.fetchPdf();
+        try {
+            const res = await fetch(this.url!);
+            this.pdfBuffer = await res.arrayBuffer();
+            this.fetchPdf();
+        } catch (e) {
+            this.onError(e);
+        }
     }
 
     async fetchPdf() {
@@ -84,9 +88,8 @@ export class PdfController {
 
     async renderPdf(num = 0) {
         while (this.pdf && this.pages && num < this.pdf.numPages) {
-            const page = this.pages![num];
+            const page = this.pages[num];
 
-            // 获取原pdf大小
             let viewport = page.getViewport({ scale: 1 });
 
             const size = this.wrapper.getBoundingClientRect();

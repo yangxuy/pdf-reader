@@ -5,12 +5,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <script src="/dist/main.bundle.js" defer></script>
+        <script src="/dist/main.bundle.js?a=4" defer></script>
     </head>
     <body>
-        <pdf-view
-            url="/demo/1.pdf"
-            style="width: 100%; height: 800px"
-        ></pdf-view>
+        <pdf-view url="/demo/1.pdf"></pdf-view>
+
+        <script>
+            const pdfView = document.querySelector("pdf-view");
+
+            pdfView.addEventListener("onError", (e) => {
+                const { message, name } = e.detail;
+                const target = e.target;
+                target.wrapper.innerHTML = message;
+            });
+
+            pdfView.addEventListener("onSuccess", (pdf) => {
+                console.log(pdf);
+            });
+        </script>
     </body>
 </html>

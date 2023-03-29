@@ -5,7 +5,6 @@ import { PdfController } from "./pdf";
 class PdfView extends HTMLElement {
     private controller?: PdfController;
     private wrapper: HTMLElement;
-    private observer: ResizeObserver;
     private frameId?: number;
 
     constructor() {
@@ -19,29 +18,27 @@ class PdfView extends HTMLElement {
 
         this.controller = new PdfController(
             this.wrapper,
-            this.onError,
-            this.onSuccess
+            (e) => this.onError(e),
+            (pdf) => this.onSuccess(pdf)
         );
 
-        this.observer = new ResizeObserver((entries) => {
-            for (let entry of entries) {
-                if (entry.contentBoxSize) {
-                    this.frameId && window.cancelAnimationFrame(this.frameId);
-                    this.frameId = window.requestAnimationFrame(async () => {
-                        await this.controller!.schedular(this.frameId);
-                    });
-                }
-            }
-        });
+        window.addEventListener("resize", this.sizeObserver.bind(this));
+    }
 
-        this.observer.observe(this.wrapper);
+    sizeObserver() {
+        this.frameId && window.cancelAnimationFrame(this.frameId);
+        this.frameId = window.requestAnimationFrame(async () => {
+            await this.controller?.schedular(this.frameId);
+        });
     }
 
     onError(e: any) {
-        console.log(e);
+        this.dispatchEvent(new CustomEvent("onError", { detail: e }));
     }
 
-    onSuccess(pdf: PDFDocumentProxy) {}
+    onSuccess(pdf: PDFDocumentProxy) {
+        this.dispatchEvent(new CustomEvent("onSuccess", { detail: pdf }));
+    }
 
     connectedCallback() {
         const style = this.getAttribute("style") ?? "";
@@ -49,8 +46,7 @@ class PdfView extends HTMLElement {
     }
 
     disconnectedCallback() {
-        this.observer?.unobserve(this.wrapper);
-        this.observer?.disconnect();
+        window.removeEventListener("resize", this.sizeObserver);
         this.frameId && window.cancelAnimationFrame(this.frameId);
     }
 
