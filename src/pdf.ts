@@ -99,7 +99,6 @@ export class PdfController {
 
             let canvas = document.createElement("canvas");
             let context = canvas.getContext("2d");
-            canvas.style.backgroundColor = "#fff";
 
             canvas.width = Math.floor(viewport.width * rate);
             canvas.height = Math.floor(viewport.height * rate);

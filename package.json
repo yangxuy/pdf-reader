@@ -1,6 +1,6 @@
 {
     "name": "@yangxuy/pdf-reader",
-    "version": "1.0.6",
+    "version": "1.0.7-alpha-0",
     "description": "a pdf reader can use for react or vue",
     "main": "dist/main.bundle.js",
     "files": [
