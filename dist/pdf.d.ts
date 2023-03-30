@@ -12,7 +12,6 @@ export declare class PdfController {
     private preFrame?;
     constructor(wrapper: HTMLElement, onError: (e: any) => void, onSuccess: (pdf: PDFDocumentProxy) => void);
     init(url: string): Promise<void>;
-    fetchData(): Promise<void>;
     fetchPdf(): Promise<void>;
     initPages(): Promise<void>;
     schedular(frameId?: number): Promise<void>;

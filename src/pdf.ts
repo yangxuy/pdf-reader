@@ -90,6 +90,7 @@ export class PdfController {
 
     async renderPdf(num = 0) {
         while (this.pdf && this.pages && num < this.pdf.numPages) {
+            console.log(this.pages);
             const page = this.pages[num];
 
             let viewport = page.getViewport({ scale: 1 });

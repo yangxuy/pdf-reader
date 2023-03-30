@@ -29,7 +29,7 @@
 ### vue
 ```vue
 <script setup>
-import "@yangxuy/pdf-reader/dist/main.bundle"
+import "@yangxuy/pdf-reader"
 import pdf from './assets/1.pdf'
 </script>
 
@@ -41,17 +41,18 @@ import pdf from './assets/1.pdf'
 ### React
 ```js
 import pdf from "./assets/1.pdf";
-import "@yangxuy/pdf-reader/dist/main.bundle";
-import { useEffect, useRef } from "react";
+import "@yangxuy/pdf-reader";
+import { useRef } from "react";
+import React from "react";
 
 function App() {
     const div = useRef<any>();
 
-    useEffect(() => {
-        div.current.innerHTML = `<pdf-view url=${pdf} style="width: 100%; height: 800px"></pdf-view>`;
-    }, []);
-
-    return <div className="App" ref={div}></div>;
+    return (
+        <div className="App" ref={div}>
+            {React.createElement("pdf-view", { url: pdf })}
+        </div>
+    );
 }
 
 export default App;
