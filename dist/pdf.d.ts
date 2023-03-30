@@ -5,6 +5,7 @@ export declare class PdfController {
     private onError;
     private onSuccess;
     private pdfBuffer?;
+    pdfBlob?: Blob;
     private pdf?;
     private url?;
     private pages?;

@@ -11,6 +11,7 @@ const global: any = window;
 
 export class PdfController {
     private pdfBuffer?: ArrayBuffer;
+    public pdfBlob?: Blob;
     private pdf?: PDFDocumentProxy;
     private url?: string;
     private pages?: PDFPageProxy[];
@@ -32,7 +33,8 @@ export class PdfController {
     async fetchData() {
         try {
             const res = await fetch(this.url!);
-            this.pdfBuffer = await res.arrayBuffer();
+            this.pdfBlob = await res.blob();
+            this.pdfBuffer = await this.pdfBlob?.arrayBuffer();
             this.fetchPdf();
         } catch (e) {
             this.onError(e);

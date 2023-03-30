@@ -5,13 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <script src="/dist/main.bundle.js?a=4" defer></script>
+        <script src="/dist/main.bundle.js?a=8" defer></script>
     </head>
     <body>
-        <pdf-view url="/demo/1.pdf"></pdf-view>
+        <pdf-view
+            url="https://sales-ats-dev.weizhipin.com/zp-sales-ats-test/a0820504-a17f-4cff-8aa2-a0c2208aa229?AWSAccessKeyId=OOVGBCZUEDZZ1H3KB4HA&Expires=1680148669&Signature=rW7bNfJXEEKr7JXbgeN0GRS6ICU%3D"
+            fileName="1"
+        ></pdf-view>
+        <button onclick="handlerDownload()">下载pdf1</button>
 
         <script>
             const pdfView = document.querySelector("pdf-view");
+            const video = document.querySelector("video");
 
             pdfView.addEventListener("onError", (e) => {
                 const { message, name } = e.detail;
@@ -22,6 +27,10 @@
             pdfView.addEventListener("onSuccess", (pdf) => {
                 console.log(pdf);
             });
+
+            function handlerDownload() {
+                pdfView.downLoad();
+            }
         </script>
     </body>
 </html>
